@@ -3,8 +3,7 @@
 
 console.log(process.cwd());
 console.log("test");
-var data = require('../../data.json');
-const catfacts = data.catfacts;
+const catfacts = require('../../data.json');
 
 exports.getRandomCatfact = function (req, res) {
 
