@@ -1,12 +1,13 @@
 'use strict';
+
 module.exports = function (app) {
     var catfactsController = require('../controllers/catfactController');
 
-    // catFact Routes
+    // catfact Routes
     app.route('/catfact')
         .get(catfactsController.getRandomCatfact);
 
 
-    //app.route('/catfact/:catfactId')
-    //.get(todoList.getCatfactById);
+    app.route('/catfact/:catfactId')
+        .get(catfactsController.getCatfactById);
 };
