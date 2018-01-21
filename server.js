@@ -4,22 +4,17 @@ const port = process.env.PORT || 3000;
 const swaggerUi = require('swagger-ui-express');
 const swaggerDoc = require('./swagger.json');
 
-var swaggerDefinition = {
-    info: {
-        title: 'Polite Catfacts API',
-        version: '1.0.0',
-        description: 'A simple api for getting nice and polite catfacts',
-    },
-    host: `'/:${port}`,
-    basePath: '/',
-};
-
 //import routes
 const routes = require('./api/routes/catfactRoutes');
 routes(app);
 
 //setup swagger
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
+
+//route all unmatched to the docs page (this must be last!)
+app.get('*', function (req, res) {
+    res.redirect('/docs')
+});
 
 //start
 app.listen(port);
