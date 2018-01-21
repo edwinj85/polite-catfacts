@@ -1,0 +1,9 @@
+{
+    "name": "polite-catfacts rest api",
+    "description": "A simple rest api for getting polite catfacts",
+    "repository": "https://github.com/edwinj85/polite-catfacts",
+    "keywords": [
+        "node",
+        "express"
+    ]
+}
