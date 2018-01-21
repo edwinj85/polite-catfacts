@@ -7,7 +7,9 @@ module.exports = function (app) {
     app.route('/catfact')
         .get(catfactsController.getRandomCatfact);
 
-
-    app.route('/catfact/:catfactId')
+    app.route('/catfact/:catfactId(^[0-9]*$)')
         .get(catfactsController.getCatfactById);
+
+    app.route('/catfact/all')
+        .get(catfactsController.getAllCatfacts);
 };
