@@ -63,6 +63,12 @@
                         "schema": {
                             "$ref": "#/definitions/catfact"
                         }
+                    },
+                    "404": {
+                        "description": "catfact with that id not found",
+                        "schema": {
+                            "$ref": "#/definitions/error"
+                        }
                     }
                 }
             }
@@ -77,7 +83,10 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/catfact"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/catfact"
+                            }
                         }
                     }
                 }
