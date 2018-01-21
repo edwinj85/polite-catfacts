@@ -49,7 +49,7 @@
                     "in": "path",
                     "required": true,
                     "description": "ID of catfact that we want to find",
-                    "type": "id"
+                    "type": "number"
                 }
             ],
             "get": {
