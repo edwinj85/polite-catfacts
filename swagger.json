@@ -1,0 +1,115 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Polite Catfacts",
+        "description": "A simple api to get nice, polite catfacts",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "api",
+            "description": ""
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/catfact": {
+            "get": {
+                "tags": [
+                    "api"
+                ],
+                "summary": "Get a random catfact",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/catfact"
+                        }
+                    }
+                }
+            }
+        },
+        "/catfact/{catfactId}": {
+            "parameters": [
+                {
+                    "name": "catfactId",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID of catfact that we want to find",
+                    "type": "id"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "api"
+                ],
+                "summary": "Get catfact with given ID",
+                "responses": {
+                    "200": {
+                        "description": "catfact is found",
+                        "schema": {
+                            "$ref": "#/definitions/catfact"
+                        }
+                    },
+                    "404": {
+                        "description": "catfact with that id not found",
+                        "schema": {
+                            "$ref": "#/definitions/error"
+                        }
+                    }
+                }
+            }
+        },
+        "/catfact/all": {
+            "get": {
+                "tags": [
+                    "api"
+                ],
+                "summary": "Get all available catfacts",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/catfact"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "catfact": {
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "fact": {
+                    "type": "string"
+                }
+            }
+        },
+        "error": {
+            "properties": {
+                "error": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
