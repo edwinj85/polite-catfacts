@@ -13,7 +13,8 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 //route all unmatched to the docs page (this must be last!)
 app.get('*', function (req, res) {
-    res.redirect('/docs')
+    res.status(404)
+        .send("Resource Not Found. Have you tried the <a href='/docs'>documentation?</a>");
 });
 
 //start
