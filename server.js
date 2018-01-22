@@ -25,3 +25,8 @@ app.get('*', function (req, res) {
 app.listen(port);
 
 console.log('polite-catfact RESTful API server started on: ' + port);
+
+/**
+ * Export the port so that it can be used by Chai
+ */
+exports.port = port;
