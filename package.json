@@ -4,7 +4,8 @@
   "description": "A simple api that provides nice cat facts",
   "main": "server.js",
   "scripts": {
-    "test": "mocha --exit"
+    "test": "mocha --exit",
+    "prepublish": "mocha --exit"
   },
   "author": "Edwin Jones",
   "license": "MIT",
