@@ -17,11 +17,15 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 //route all unmatched to the docs page (this must be last!)
 app.get('*', function (req, res) {
-    res.status(404)
-        .send("Resource Not Found. Have you tried the <a href='/docs'>documentation?</a>");
+    res.status(404).sendFile(__dirname + "/html/404.html")
 });
 
 //start
 app.listen(port);
 
 console.log('polite-catfact RESTful API server started on: ' + port);
+
+/**
+ * Export the port so that it can be used by Chai
+ */
+exports.port = port;

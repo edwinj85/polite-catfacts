@@ -17,9 +17,9 @@ exports.getRandomCatfact = function (req, res) {
 
 exports.getCatfactById = function (req, res) {
 
-    console.log("catfact requested by id");
-
     let index = req.params.catfactId;
+
+    console.log(`catfact requested by id ${index}`);
 
     //if id/index out of bounds, return a 404 error.
     if (index < 0 || index >= catfacts.length) {
