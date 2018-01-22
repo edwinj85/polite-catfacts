@@ -22,8 +22,6 @@ describe('API endpoint /catfact', function () {
     console.log("shutting down tests");
   });
 
-
-
   // GET - a random catfact
   it('should return random catfact', () => {
     return chai.request(path)
@@ -50,7 +48,35 @@ describe('API endpoint /catfact', function () {
       });
   });
 
-  // GET - a all catfacts
+  //GET - invalid id
+  it('should return 404 json when catfact requested by invalid id', () => {
+    return chai.request(path)
+      .get('/catfact/99999')
+      .then((res) => {
+        throw new Error('Path exists!');
+      })
+      .catch((err) => {
+        expect(err).to.have.status(404);
+        expect(err.response).to.be.json;
+        expect(err.response.body).to.be.an('object');
+        expect(err.response.body.error).to.be.a('string');
+      });
+  });
+
+  //GET - unmatched route
+  it('should return 404 html when unmatched route requested', () => {
+    return chai.request(path)
+      .get('/catfact/-99999')
+      .then(function (res) {
+        throw new Error('Path exists!');
+      })
+      .catch(function (err) {
+        expect(err).to.have.status(404);
+        expect(err.response).to.be.html;
+      });
+  });
+
+  // GET - all catfacts
   it('should return all catfacts', () => {
     return chai.request(path)
       .get('/catfact/all')
