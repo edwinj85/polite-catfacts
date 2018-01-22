@@ -40,7 +40,7 @@ exports.getAllCatfacts = function (req, res) {
 
     let result = [];
 
-    for (let i = 0; i <= catfacts.length; i++) {
+    for (let i = 0; i < catfacts.length; i++) {
         result.push(new Catfact(i, catfacts[i]));
     }
 
