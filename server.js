@@ -9,7 +9,7 @@ const helmet = require('helmet')
 const routes = require('./api/routes/catfactRoutes');
 routes(app);
 
-//switch off certain headers/settings for security reasons.
+//switch on/off certain headers/settings for security reasons.
 app.use(helmet());
 
 //setup swagger
