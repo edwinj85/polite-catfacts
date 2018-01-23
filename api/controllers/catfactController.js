@@ -1,11 +1,12 @@
 'use strict';
 
-const catfacts = require('../../data');
+const catfacts = require('../../data/facts');
 const Catfact = require('../models/catfact');
+const log = require('debug')('catfactController')
 
 exports.getRandomCatfact = function (req, res) {
 
-    console.log("random catfact requested");
+    log("random catfact requested");
     const index = Math.floor(Math.random() * catfacts.length);
 
     let catfact = catfacts[index];
@@ -19,7 +20,7 @@ exports.getCatfactById = function (req, res) {
 
     let index = req.params.catfactId;
 
-    console.log(`catfact requested by id ${index}`);
+    log(`catfact requested by id ${index}`);
 
     //if id/index out of bounds, return a 404 error.
     if (index < 0 || index >= catfacts.length) {
@@ -37,7 +38,7 @@ exports.getCatfactById = function (req, res) {
 
 exports.getAllCatfacts = function (req, res) {
 
-    console.log("all catfacts requested");
+    log("all catfacts requested");
 
     let result = [];
 

@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 const swaggerUi = require('swagger-ui-express');
-const swaggerDoc = require('./swagger.json');
+const swaggerDoc = require('./data/swagger.json');
 const helmet = require('helmet')
-var debug = require('debug')('server')
+const log = require('debug')('server')
 
 //import routes
 const routes = require('./api/routes/catfactRoutes');
@@ -24,7 +24,7 @@ app.get('*', function (req, res) {
 //start
 app.listen(port);
 
-console.log('polite-catfact RESTful API server started on: ' + port);
+log('polite-catfact RESTful API server started on: ' + port);
 
 /**
  * Export the port so that it can be used by Chai
