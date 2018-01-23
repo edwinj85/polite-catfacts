@@ -1,15 +1,13 @@
 {
     "swagger": "2.0",
     "info": {
-        "version": "1.0.0",
         "title": "Polite Catfacts",
-        "description": "A simple api to get nice, polite catfacts",
+        "description": "A simple api to get nice, polite catfacts. Please use the HTTPS scheme for testing.",
         "license": {
             "name": "MIT",
             "url": "https://opensource.org/licenses/MIT"
         }
     },
-    "basePath": "/",
     "tags": [
         {
             "name": "api",
@@ -17,7 +15,8 @@
         }
     ],
     "schemes": [
-        "https"
+        "https",
+        "http"
     ],
     "consumes": [
         "application/json"

@@ -1,8 +1,12 @@
 'use strict';
 
 module.exports = function (app) {
-    var catfactsController = require('../controllers/catfactController');
 
+    const catfactsController = require('../controllers/catfactController');
+
+    const swaggerUi = require('swagger-ui-express');
+    const swaggerDoc = require('../../data/swagger.json');
+    
     // catfact Routes
     app.route('/catfact')
         .get(catfactsController.getRandomCatfact);
@@ -12,4 +16,10 @@ module.exports = function (app) {
 
     app.route('/catfact/all')
         .get(catfactsController.getAllCatfacts);
+
+    //setup swagger
+    app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
+
+    //route all unmatched to the docs page (this must be last!)
+    app.get('*', catfactsController.default);
 };

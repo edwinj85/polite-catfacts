@@ -6,8 +6,7 @@ const expect = require('chai').expect;
 chai.use(require('chai-http'));
 
 const app = require('../server.js'); // Our app
-
-const path = `http://localhost:${app.port}`;
+const path = `http://localhost:${__port}`;
 
 describe(`Testing with path: ${path}`, function () {
   describe('API endpoint /catfact', function () {
