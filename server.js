@@ -4,6 +4,7 @@ const port = process.env.PORT || 3000;
 const swaggerUi = require('swagger-ui-express');
 const swaggerDoc = require('./swagger.json');
 const helmet = require('helmet')
+var debug = require('debug')('server')
 
 //import routes
 const routes = require('./api/routes/catfactRoutes');

@@ -23,7 +23,8 @@ exports.getCatfactById = function (req, res) {
 
     //if id/index out of bounds, return a 404 error.
     if (index < 0 || index >= catfacts.length) {
-        res.status(404).send({ error: 'No cat fact found with that id' })
+        res.setHeader('Content-Type', 'text/plain');
+        res.status(404).send('No cat fact found with that id');
         return;
     }
 

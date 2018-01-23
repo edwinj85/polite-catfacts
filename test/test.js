@@ -14,16 +14,14 @@ console.log(`Testing with path: ${path}`);
 describe('API endpoint /catfact', function () {
   this.timeout(5000); // How long to wait for a response (ms)
 
-  before(() => {
-    console.log("starting up tests");
+  before(function() {
   });
 
-  after(() => {
-    console.log("shutting down tests");
+  after(function() {
   });
 
   // GET - a random catfact
-  it('should return random catfact', () => {
+  it('should return random catfact', function() {
     return chai.request(path)
       .get('/catfact')
       .then(function (res) {
@@ -36,7 +34,7 @@ describe('API endpoint /catfact', function () {
   });
 
   // GET - a single catfact
-  it('should return 1 catfact', () => {
+  it('should return 1 catfact', function() {
     return chai.request(path)
       .get('/catfact/1')
       .then(function (res) {
@@ -49,22 +47,20 @@ describe('API endpoint /catfact', function () {
   });
 
   //GET - invalid id
-  it('should return 404 json when catfact requested by invalid id', () => {
+  it('should return 404 text when catfact requested by invalid id', function() {
     return chai.request(path)
       .get('/catfact/99999')
-      .then((res) => {
+      .then(function(res) {
         throw new Error('Path exists!');
       })
-      .catch((err) => {
+      .catch(function(err) {
         expect(err).to.have.status(404);
-        expect(err.response).to.be.json;
-        expect(err.response.body).to.be.an('object');
-        expect(err.response.body.error).to.be.a('string');
+        expect(err.response).to.be.text;
       });
   });
 
   //GET - unmatched route
-  it('should return 404 html when unmatched route requested', () => {
+  it('should return 404 html when unmatched route requested', function() {
     return chai.request(path)
       .get('/catfact/-99999')
       .then(function (res) {
@@ -77,7 +73,7 @@ describe('API endpoint /catfact', function () {
   });
 
   // GET - all catfacts
-  it('should return all catfacts', () => {
+  it('should return all catfacts', function() {
     return chai.request(path)
       .get('/catfact/all')
       .then(function (res) {

@@ -65,10 +65,7 @@
                         }
                     },
                     "404": {
-                        "description": "catfact with that id not found",
-                        "schema": {
-                            "$ref": "#/definitions/error"
-                        }
+                        "description": "catfact with that id not found"
                     }
                 }
             }
@@ -100,13 +97,6 @@
                     "type": "number"
                 },
                 "fact": {
-                    "type": "string"
-                }
-            }
-        },
-        "error": {
-            "properties": {
-                "error": {
                     "type": "string"
                 }
             }
