@@ -4,7 +4,7 @@ const catfacts = require('../../data/facts');
 const Catfact = require('../models/catfact');
 const log = require('debug')('catfactController')
 
-exports.getRandomCatfact = (req, res) =>  {
+exports.getRandomCatfact = (req, res) => {
 
     log("random catfact requested");
     const index = Math.floor(Math.random() * catfacts.length);
@@ -16,7 +16,7 @@ exports.getRandomCatfact = (req, res) =>  {
     res.json(item);
 };
 
-exports.getCatfactById = (req, res) =>  {
+exports.getCatfactById = (req, res) => {
 
     let index = req.params.catfactId;
 
@@ -36,7 +36,7 @@ exports.getCatfactById = (req, res) =>  {
     res.json(item);
 }
 
-exports.getAllCatfacts = (req, res) =>  {
+exports.getAllCatfacts = (req, res) => {
 
     log("all catfacts requested");
 
@@ -51,6 +51,6 @@ exports.getAllCatfacts = (req, res) =>  {
 
 exports.default = (req, res) => {
     log("unmatched route requested (link to swagger docs page)");
-    res.status(404).sendFile(__basedir + "/html/404.html");
+    res.status(404).sendFile(__basedir + "/views/404.html");
 };
 
