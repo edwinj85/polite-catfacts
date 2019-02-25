@@ -2,7 +2,7 @@
 
 const catfacts = require('../../data/facts');
 const Catfact = require('../models/catfact');
-const log = require('debug')('catfactController')
+const log = require('debug')('catfactApi')
 
 exports.getRandomCatfact = (req, res) => {
 
