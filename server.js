@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 const helmet = require('helmet')
-const log = require('debug')('catfact-api')
+const log = require('debug')('catfact-api:server')
 
 //provide globals for all modules
 global.__basedir = __dirname;
