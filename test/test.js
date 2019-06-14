@@ -48,9 +48,6 @@ describe(`Testing with path: ${path}`, function () {
     it('should return 404 text when catfact requested by invalid id', function() {
       return chai.request(path)
         .get('/catfact/99999')
-        .then(function(res) {
-          throw new Error('Path exists!');
-        })
         .catch(function(err) {
           expect(err).to.have.status(404);
           expect(err.response).to.be.text;
@@ -61,9 +58,6 @@ describe(`Testing with path: ${path}`, function () {
     it('should return 404 html when unmatched route requested', function() {
       return chai.request(path)
         .get('/catfact/-99999')
-        .then(function (res) {
-          throw new Error('Path exists!');
-        })
         .catch(function (err) {
           expect(err).to.have.status(404);
           expect(err.response).to.be.html;
