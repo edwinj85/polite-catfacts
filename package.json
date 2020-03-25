@@ -12,12 +12,12 @@
   "dependencies": {
     "debug": "^3.2.6",
     "express": "^4.17.1",
-    "helmet": "^3.18.0",
+    "helmet": "^3.22.0",
+    "mocha": "^7.1.1",
     "swagger-ui-express": "^2.0.14"
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "chai-http": "^4.3.0",
-    "mocha": "^5.2.0"
+    "chai-http": "^4.3.0"
   }
 }
